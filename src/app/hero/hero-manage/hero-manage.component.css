@@ -1,0 +1,15 @@
+.hero-table tr:hover{
+  color: #607D8D;
+  background-color: #DDD;
+}
+
+.hero-table tr.selected {
+  background-color: #CFD8DC !important;
+  color: white;
+}
+
+
+.hero-table tr.selected:hover {
+  background-color: #BBD8DC !important;
+  color: white;
+}

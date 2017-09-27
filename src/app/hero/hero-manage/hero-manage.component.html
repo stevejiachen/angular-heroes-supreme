@@ -1,0 +1,60 @@
+<div class="box">
+  <div class="box-header with-border">
+    <a href="" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus"></span>create</a>
+    <div class="box-tools">
+      <div class="input-group input-group-sm" style="width: 150px;">
+        <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+
+        <div class="input-group-btn">
+          <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.box-header -->
+  <div class="box-body">
+    <table class="hero-table table table-bordered">
+      <tr>
+        <th style="width: 10px">ID</th>
+        <th>Hero Name</th>
+        <th>Hero Strength</th>
+        <th>Hero Rating</th>
+        <th>Manuiplate</th>
+      </tr>
+      <tr *ngFor="let hero of heroes; let i = index;"
+        [class.selected]="hero === selectedHero"
+        (click)="onSelect(hero)">
+        <td><span class="badge">{{hero.id}}</span></td>
+        <td>{{hero.name}}</td>
+        <td>{{hero.strength}}</td>
+        <td><app-stars [rating]="hero.rating"></app-stars></td>
+        <td>
+          <a class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-pencil"></span>change</a>
+          <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span>delete</a>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+
+  <div *ngIf="selectedHero">
+    <h2>{{selectedHero.name}}</h2>
+    <div><label>id:</label>{{selectedHero.id}}</div>
+    <div>
+      <label>name:</label>
+      {{selectedHero.name}}
+      <input [(ngModel)]="selectedHero.name" placeholder="name"/>
+    </div>
+  </div>
+
+  <!-- /.box-body -->
+  <div class="box-footer clearfix">
+    <ul class="pagination pagination-sm no-margin pull-right">
+      <li><a href="#">&laquo;</a></li>
+      <li><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">&raquo;</a></li>
+    </ul>
+  </div>
+</div>
